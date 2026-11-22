@@ -1,0 +1,45 @@
+[project]
+name = "ea-mpd-analysis"
+version = "0.1.0"
+description = "Reproducible analysis of EA-MPD event-window OIS surprises"
+readme = "README.md"
+requires-python = ">=3.12,<3.13"
+dependencies = [
+    "matplotlib>=3.9,<4",
+    "numpy>=2.2,<3",
+    "openpyxl>=3.1,<4",
+    "pandas>=2.2,<3",
+    "requests>=2.32,<3",
+    "scikit-learn>=1.5,<2",
+    "scipy>=1.15,<2",
+    "statsmodels>=0.14,<1",
+]
+
+[dependency-groups]
+dev = [
+    "pytest>=8,<10",
+]
+validation = [
+    "quantlib==1.44",
+]
+
+[project.scripts]
+ea-mpd-analyze = "ea_mpd.cli:main"
+ea-mpd-robustness = "ea_mpd.robustness:main"
+ea-mpd-factor-regressions = "ea_mpd.policy_factors:main"
+ea-mpd-download-aaa-curve = "ea_mpd.ecb_curve_data:main"
+ea-mpd-swap-pricing = "ea_mpd.swap_pricing_pipeline:main"
+ea-mpd-swap-risk-experiments = "ea_mpd.swap_risk_experiments:main"
+ea-mpd-pca-pnl = "ea_mpd.pca_pnl:main"
+
+[build-system]
+requires = ["hatchling"]
+build-backend = "hatchling.build"
+
+[tool.hatch.build.targets.wheel]
+packages = ["src/ea_mpd"]
+
+[tool.pytest.ini_options]
+addopts = "-q"
+testpaths = ["tests"]
+
