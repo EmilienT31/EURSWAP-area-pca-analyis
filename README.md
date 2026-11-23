@@ -157,3 +157,16 @@ components, and applies the existing event-specific zero-node KRD vector. The
 stage compares PCA with parallel-only, full-KRD and nonlinear repricing on one
 common event/instrument sample, including the DV01-neutral curve portfolio.
 
+Audit the saved PCA results and prepare the window-consistent ECB factor P&L
+design without executing that attribution:
+
+```bash
+uv run ea-mpd-pca-diagnostics --output results/pca_diagnostics
+```
+
+This writes a separate diagnostics report, instrument-level error tables,
+rolling explained-variance summaries, selected paired-bootstrap comparisons,
+a zero-input PCA reconstruction check, published-factor coverage, event-window
+additivity checks and a validated par-to-zero conversion example. Existing PCA,
+pricing and factor-regression outputs are read-only inputs.
+

@@ -31,6 +31,7 @@ ea-mpd-download-aaa-curve = "ea_mpd.ecb_curve_data:main"
 ea-mpd-swap-pricing = "ea_mpd.swap_pricing_pipeline:main"
 ea-mpd-swap-risk-experiments = "ea_mpd.swap_risk_experiments:main"
 ea-mpd-pca-pnl = "ea_mpd.pca_pnl:main"
+ea-mpd-pca-diagnostics = "ea_mpd.pca_diagnostics:main"
 
 [build-system]
 requires = ["hatchling"]
